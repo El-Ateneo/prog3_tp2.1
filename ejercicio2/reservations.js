@@ -1,6 +1,40 @@
-class Customer {}
+class Customer {
 
-class Reservation {}
+    constructor(id, name, email){
+        this.id= id; //Identificador del cliente.
+        this.name= name; //Nombre del cliente.
+        this.email= email; //Correo electrónico del cliente.
+    }
+    get info(){
+        return `nombre: ${this.name}, email: ${this.email}`;        
+    }
+}
+
+class Reservation {
+    constructor(id, Customer, date, guests){
+        this.id= id; //`: Identificador de la reserva.
+        this.customer= Customer; //`: instancia de la clase `Customer` que realiza la reserva.
+        this.date= date; //Fecha y hora de la reserva.
+        this.guests= guests; // Número de comensales de la reserva.
+    }
+
+    get info(){
+        return `Fecha y Hora: ${this.date},
+                cliente: ${this.customer.info},
+                Comensales: ${this.guests}`;
+    }
+    static validateReservation(reservation){
+        const newReservacion= new Date();
+        const reservationdate= new Date(reservation.date);
+
+        if (reservationdate < newReservacion || reservation.guests <= 0){
+            return false;
+        }else{
+            return true;
+        }
+        
+    }
+}
 
 class Restaurant {
     constructor(name) {
