@@ -18,9 +18,17 @@
         <section class="section">
             <div class="container">
                 <h1 class="title">Juego de Memoria</h1>
+
+                <div class="moves-timer-container">
+                    <div>Movimientos: <span id="moves-counter">0</span></div>
+                    <div>Tiempo: <span id="timer">0:00</span></div>
+                    <div>Puntuación: <span id="score">0</span></div>
+                </div>
+
                 <button id="restart-button" class="button is-primary">
                     Reiniciar Juego
                 </button>
+
                 <div class="fixed-grid has-4-cols">
                     <div id="game-board" class="grid"></div>
                 </div>
